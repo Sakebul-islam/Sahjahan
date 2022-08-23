@@ -1,0 +1,22 @@
+.project-counter {
+    background-color: $shape-color;
+
+    &__inner {
+        background-color: $body-color;
+        padding: 25px;
+        @include add-prefix(border-radius, 8px);
+
+        span {
+            @extend %text-capitalize,
+            %text-bold;
+            @include font-size($fs-h4);
+            margin-bottom: 5px;
+        }
+
+        h5 {
+            @extend %text-capitalize,
+            %text-medium;
+            @include font-size($fs-h5);
+        }
+    }
+}

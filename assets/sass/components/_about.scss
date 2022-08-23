@@ -1,0 +1,103 @@
+.about {
+    &__thumb {
+        @extend %p-rel;
+
+        &::before {
+            @extend %p-abs;
+            // width: 519px;
+            width: 100%;
+            // height: 482px;
+            height: 100%;
+            background-color: $shape-color;
+            z-index: 0;
+            @include add-prefix(border-radius, 8px);
+
+            @include breakpoint(md) {
+                width: 85%;
+                height: 85%;
+            }
+        }
+
+        img {
+            @extend %p-rel;
+            // width: calc(100% - 20px);
+            width: calc(100%);
+            // padding: 20px 0 0 20px;
+            padding: 20px;
+            @include add-prefix(border-radius, 28px !important);
+        }
+    }
+
+    &__content {
+        h6 {}
+
+        h3 {
+            @extend %text-medium;
+        }
+
+        p {
+            @extend %text-capitalize,
+            %text-light;
+            color: $white-color;
+            @include font-size($fs-base);
+            @include add-prefix(border-radius, 4px);
+        }
+    }
+
+    &__info {
+        @extend %flex,
+        %justify-center,
+        %ai-center;
+        margin-top: 30px;
+    }
+
+    &__info-left,
+    &__info-right {
+        width: calc(100%);
+
+        @include breakpoint(sm) {
+            width: calc(100% / 2);
+        }
+
+        @include breakpoint(md) {
+            width: calc(100%);
+        }
+
+        @include breakpoint(lg) {
+            width: calc(100% / 2);
+        }
+
+        li {
+            padding: 10px 0;
+        }
+
+    }
+
+    &__info-title {
+        margin-right: 5px;
+        @extend %text-bold,
+        %d-inline-block;
+        width: 60px;
+    }
+
+    &__info-discription {
+        margin-left: 5px;
+        @extend %text-light;
+        width: calc(100% - 60px);
+
+        a {
+            color: $white-color;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: $theme-color;
+            }
+        }
+
+    }
+
+    .common-btn {
+        margin-top: 28px;
+    }
+}

@@ -1,0 +1,191 @@
+.contact {
+    &__bottom {
+        margin-top: 50px;
+
+        @include breakpoint(md) {
+            margin-top: 80px;
+        }
+
+        @include breakpoint(lg) {
+            margin-top: 100px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+
+            @include breakpoint(md) {
+                height: 350px;
+            }
+
+            @include breakpoint(lg) {
+                height: 430px;
+            }
+        }
+
+
+    }
+
+    &__info-item {
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__info-inner {
+        background-color: $shape-color;
+        @extend %flex,
+        %ai-center;
+        padding: 15px;
+        @include border-radius(8px);
+
+        @include breakpoint(sm) {
+            padding: 25px;
+        }
+    }
+
+    &__info-thumb {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        @extend %text-center;
+        @include border-radius(100%);
+        background-color: $body-color;
+
+        @include breakpoint(sm) {
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+        }
+
+        i {
+            @include font-size(25px);
+
+            &.fa-phone-volume {
+                @include add-prefix(transform, rotate(-45deg));
+            }
+        }
+    }
+
+    &__info-details {
+        padding-left: 20px;
+        width: calc(100% - 70px);
+        @extend %text-center,
+        %text-left;
+
+        h5 {
+            @include font-size($fs-h5);
+            @extend %text-medium,
+            %text-capitalize;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            li {
+                a {
+                    color: $white-color;
+                    @extend %text-light;
+                }
+
+                p {
+                    color: $white-color;
+                    @extend %text-light;
+                }
+            }
+        }
+    }
+
+    &__form-wrapper {
+        margin-top: 50px;
+
+        @include breakpoint(md) {
+            margin-top: 80px;
+        }
+
+        @include breakpoint(lg) {
+            margin-top: 0;
+        }
+
+        form {
+            @extend %flex,
+            %justify-between,
+            %ai-center;
+        }
+
+        input,
+        textarea {
+            @include border-radius(8px);
+            padding: 15px;
+            color: $white-color;
+            border: 0.5px solid $input-field-color;
+
+            @include breakpoint(sm) {
+                padding: 20px;
+            }
+
+            @include breakpoint(md) {
+                padding: 25px;
+            }
+
+            &::placeholder {
+                color: $placeholder-color;
+                @extend %text-capitalize;
+            }
+
+            &:focus {
+                border-color: rgba($theme-color, 0.5);
+            }
+        }
+
+
+        #name {}
+
+        #email {}
+
+        #name {
+            width: calc(100%);
+            margin-bottom: 25px;
+
+            @include breakpoint(sm) {
+                width: calc(100% / 2 - 10px);
+                margin-bottom: 0px;
+            }
+        }
+
+        #email {
+            width: calc(100%);
+
+            @include breakpoint(sm) {
+                width: calc(100% / 2 - 10px);
+            }
+        }
+
+        #message {
+            margin-top: 25px;
+        }
+
+        .common-btn--submit {
+            margin-top: 45px;
+        }
+    }
+}
+
+// form-message
+.form-message {
+    @extend %m-0;
+    font-size: $fs-base;
+    color: $white-color;
+    @extend %text-center;
+
+    &.success {
+        @extend %mt-30;
+        color: rgba(green, $alpha: 1) !important;
+    }
+
+    &.error {
+        @extend %mt-30;
+        color: rgba(red, $alpha: 1) !important;
+    }
+}

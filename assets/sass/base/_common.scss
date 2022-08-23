@@ -1,0 +1,873 @@
+// all section padding top and bottom
+.padding-tb {
+	padding-top: 80px;
+	padding-bottom: 80px;
+
+	@include breakpoint(sm) {
+		padding-top: 90px;
+		padding-bottom: 90px;
+	}
+
+	@include breakpoint(md) {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+
+	@include breakpoint(lg) {
+		padding-top: 110px;
+		padding-bottom: 110px;
+	}
+
+	@include breakpoint(xl) {
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+}
+
+.margin-tb {
+	margin-top: 80px;
+	margin-bottom: 80px;
+
+	@include breakpoint(sm) {
+		margin-top: 90px;
+		margin-bottom: 90px;
+	}
+
+	@include breakpoint(md) {
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
+
+	@include breakpoint(lg) {
+		margin-top: 110px;
+		margin-bottom: 110px;
+	}
+
+	@include breakpoint(xl) {
+		margin-top: 120px;
+		margin-bottom: 120px;
+	}
+}
+
+// preloder scss start
+.preloder-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+
+	.overlayDoor {
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			width: 50%;
+			height: 100%;
+			background: #111;
+			transition: 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+			transition-delay: 0.8s;
+		}
+
+		&:before {
+			left: 0;
+		}
+
+		&:after {
+			right: 0;
+		}
+	}
+
+	&.loaded {
+		.overlayDoor {
+			&:before {
+				left: -50%;
+			}
+
+			&:after {
+				right: -50%;
+			}
+		}
+
+		.overlayContent {
+			opacity: 0;
+			margin-top: -15px;
+		}
+	}
+
+	.overlayContent {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		transition: 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+	}
+}
+
+.loader {
+	width: 120px;
+	height: 120px;
+	border: 3px solid $theme-color;
+	border-bottom: 3px solid transparent;
+	border-radius: 50%;
+	position: relative;
+	animation: spin 1s linear infinite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.inner {
+		width: 80px;
+		height: 80px;
+		border: 3px solid transparent;
+		border-top: 3px solid $theme-color;
+		border-left: 3px solid $theme-color;
+		border-radius: 50%;
+		animation: spinInner 1s linear infinite;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.inner-loding {
+			width: 55px;
+			height: 55px;
+			border: 3px solid transparent;
+			border-top: 3px solid $theme-color;
+			border-right: 3px solid $theme-color;
+			border-radius: 50%;
+			animation: spinInner-inner 1s linear infinite;
+		}
+	}
+}
+
+@keyframes spin {
+	0% {
+		@include add-prefix(transform, rotate(0deg));
+	}
+
+	100% {
+		@include add-prefix(transform, rotate(360deg));
+	}
+}
+
+@keyframes spinInner {
+	0% {
+		@include add-prefix(transform, rotate(0deg));
+	}
+
+	100% {
+		@include add-prefix(transform, rotate(-720deg));
+	}
+}
+
+@keyframes spinInner-inner {
+	0% {
+		@include add-prefix(transform, rotate(0deg));
+	}
+
+	100% {
+		@include add-prefix(transform, rotate(720deg));
+	}
+}
+
+// preloder scss end
+
+// scrollToTop
+
+.scrollToTop {
+	position: fixed;
+	bottom: -30%;
+	right: 5%;
+	z-index: 999;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	// background-image: radial-gradient(#e8505b 0%, #e8505b 100%);
+	background-image: radial-gradient(#ffb400 0%, #ffb400 100%);
+	text-align: center;
+	border-radius: 50%;
+	font-size: 24px;
+	@include add-prefix(animation, scroll-Top 5s linear infinite);
+	@include transition($transition);
+
+	&::after {
+		@extend%p-abs;
+		content: "\f102" !important;
+		font: var(--fa-font-solid);
+		top: 50%;
+		left: 0;
+		width: 100%;
+		font-size: 20px;
+		@include add-prefix(transform, translateY(-50%));
+	}
+
+	&:hover,
+	&:focus {
+		color: $white-color;
+	}
+}
+
+@keyframes scroll-Top {
+	0% {
+		@include add-prefix(transform, translateY(-15px));
+	}
+
+	50% {
+		@include add-prefix(transform, translateY(0px));
+	}
+
+	100% {
+		@include add-prefix(transform, translateY(-15px));
+	}
+}
+
+.wev-1,
+.wev-2 {
+	@extend %p-abs;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	left: 50%;
+	top: 50%;
+	@include add-prefix(transform, translate(-50%, -50%));
+	// background-image: radial-gradient(#e8505b 0%, #e8505b 100%);
+	background-image: radial-gradient(#ffb400 0%, #ffb400 100%);
+
+	&::after,
+	&::before {
+		@extend %p-abs;
+		// background-image: radial-gradient(#e8505b 0%, #e8505b 100%);
+		background-image: radial-gradient(#ffb400 0%, #ffb400 100%);
+
+		border-radius: 50%;
+		left: 50%;
+		top: 50%;
+		@include add-prefix(transform, translate(-50%, -50%));
+		z-index: 0;
+	}
+
+	&::after {
+		width: 30px;
+		height: 30px;
+		background: transparent;
+	}
+
+	&:before {
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.wev-1 {
+	@include add-prefix(animation, pluse_animate 3s infinite linear);
+}
+
+.wev-2 {
+	&::before {
+		@include add-prefix(animation, pluse_animate 3s infinite linear);
+		-webkit-animation-delay: 1s;
+		animation-delay: 1s;
+		margin-left: 0;
+		margin-top: 0;
+	}
+}
+
+@keyframes pluse_animate {
+	0% {
+		opacity: 1;
+		@include add-prefix(transform, translate(-50%, -50%) scale(0.3));
+	}
+
+	100% {
+		opacity: 0;
+		@include add-prefix(transform, translate(-50%, -50%) scale(2));
+	}
+}
+
+// overlay 
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 0%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@include transition($transition);
+
+	&.active {
+		right: 100%;
+	}
+}
+
+// main section 
+.main-content {
+	background-color: $body-color;
+	width: 100%;
+	@extend %p-rel;
+	@include transition($transition);
+
+	@include breakpoint(xl) {
+		&.active {
+			padding-right: 100px;
+		}
+	}
+
+	@media screen and (min-width: 1300px) {
+		&.active {
+			padding-right: 0;
+		}
+	}
+}
+
+section {
+	overflow-y: hidden;
+	@include transition($transition);
+}
+
+// section shape 
+.shapes {
+	@extend %p-rel;
+
+	@include breakpoint(lg) {
+		&::before {
+			position: absolute;
+			content: "";
+			top: -50px;
+			left: 0;
+			width: 96px;
+			height: 241px;
+			@include background-image(home, shape-1, svg);
+			z-index: 999;
+
+			@include breakpoint(xl) {
+				top: 0;
+			}
+		}
+
+		&::after {
+			position: absolute;
+			content: "";
+			top: -50px;
+			right: 206px;
+			width: 104px;
+			height: 147px;
+			@include background-image(home, shape-2, svg);
+			z-index: 999;
+
+			@include breakpoint(xl) {
+				top: 0;
+			}
+		}
+	}
+}
+
+
+// section heading
+.top-header {
+	@extend %d-inline-block,
+	%text-capitalize,
+	%text-semi-bold;
+	letter-spacing: 0.15em;
+	color: $white-color;
+	background-color: $shape-color;
+	@include font-size($fs-base);
+	padding: 12px 13px;
+	@include add-prefix(border-radius, 4px);
+	margin-bottom: 21px;
+	@include transition($transition);
+}
+
+.main-header {
+	@extend %text-capitalize,
+	%text-bold;
+	color: $white-color;
+	@include font-size($fs-h3);
+	@include add-prefix(border-radius, 4px);
+	margin-bottom: 8px;
+}
+
+.section-header {
+	@extend %text-center;
+	margin-bottom: 45px;
+}
+
+// custom slider arrow 
+.arrow {
+	display: none;
+
+	@include breakpoint(md) {
+		position: absolute;
+		content: "";
+		display: initial;
+		text-align: center;
+		height: 40px;
+		width: 40px;
+		line-height: 40px;
+		top: initial;
+		bottom: 3.5px;
+		background-color: $theme-color;
+		@include border-radius(4px);
+		cursor: pointer;
+	}
+
+	&::after {
+		content: none;
+	}
+
+	i {
+		color: $shape-color;
+		@extend %text-bold;
+	}
+}
+
+// hamburger menu 
+.hamburger {
+	@extend %flex,
+	%ai-center;
+
+	&__menu {
+		@extend %flex,
+		%justify-between,
+		%ai-center;
+		padding: 20px;
+		width: 100%;
+		background-color: $black-color;
+		z-index: 10;
+
+		@include breakpoint(xl) {
+			position: fixed;
+			top: 50px;
+			right: 50px;
+			background-color: transparent;
+			justify-content: right;
+			width: 60px;
+			height: 60px;
+			padding: 0;
+
+			a {
+				display: none;
+			}
+		}
+
+		a {
+			color: $white-color;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: $theme-color;
+			}
+
+			h5 {
+				font-family: $title-font;
+				@extend %text-uppercase,
+				%text-bold;
+				@include font-size($fs-h5);
+			}
+		}
+	}
+
+	&__icon {
+		width: 40px;
+		height: 40px;
+		padding: 7px;
+		cursor: pointer;
+		background-color: $black-color;
+		@extend %flex,
+		%justify-end,
+		%ai-center;
+		@include border-radius(100%);
+		z-index: 99999;
+
+		@include breakpoint(xl) {
+			justify-content: end !important;
+			width: 60px;
+			height: 60px;
+			padding: 20px;
+		}
+
+		span {
+			background-color: $white-color;
+			width: 20px;
+			height: 3px;
+			@include transition($transition);
+
+			@include breakpoint(lg) {
+				width: 100%;
+			}
+		}
+
+		&.active {
+			justify-content: right;
+
+			span {
+
+				&:nth-child(1) {
+					width: 100%;
+				}
+
+				&:nth-child(2) {
+					width: 75%;
+				}
+
+				&:nth-child(3) {
+					width: 35%;
+				}
+
+				@include breakpoint(xl) {
+					&:nth-child(1) {
+						width: 20px;
+					}
+
+					&:nth-child(2) {
+						width: 15px;
+					}
+
+					&:nth-child(3) {
+						width: 12px;
+					}
+				}
+			}
+		}
+	}
+
+	&__menu-nav {
+		@extend %p-abs;
+		width: 100%;
+		height: 0;
+		top: 0;
+		left: 0;
+		background-color: rgba($shape-color, $alpha: .98);
+		@include transition(all 0.9s ease);
+		@include add-prefix(transform, translateY(-500px));
+		z-index: 9;
+
+		@include breakpoint(xl) {
+			position: fixed;
+			content: "";
+			display: flex;
+			align-items: center;
+			width: auto;
+			height: initial;
+			top: 380px;
+			left: initial;
+			right: -200px;
+			background-color: transparent;
+			@include add-prefix(transform, translateY(-800px) rotate(90deg));
+		}
+
+		&.active {
+			position: fixed;
+			height: 100vh;
+			left: 0%;
+			@include add-prefix(transform, translateY(0px));
+
+			li {
+
+				&:first-child {
+					padding-top: 100px;
+				}
+			}
+
+			@include breakpoint(xl) {
+				width: auto;
+				height: initial;
+				left: auto;
+				right: -200px;
+				@include add-prefix(transform, translateY(0px) rotate(90deg));
+
+				li {
+					&:first-child {
+						padding-top: 0px;
+					}
+				}
+
+			}
+
+		}
+
+		li {
+			@extend %text-center;
+			text-align: center;
+			border-bottom: 1px solid rgba($white-color, $alpha: .1);
+
+
+			@include breakpoint(xl) {
+				text-align: initial;
+				border: none;
+
+				&:last-child a::after {
+					content: none !important;
+				}
+			}
+
+			a {
+				padding: 15px 10px;
+				@extend %text-uppercase,
+				%text-medium,
+				%p-rel;
+				color: $white-color;
+				@include font-size($fs-base);
+				font-family: $title-font;
+				width: 100%;
+
+				@include breakpoint(xl) {
+					width: auto;
+					padding: 10px 15px 10px 10px;
+				}
+
+				&::after {
+					@include breakpoint(xl) {
+						position: absolute;
+						content: "";
+						width: 2px;
+						height: 40%;
+						top: 50%;
+						right: 0px;
+						@include add-prefix(transform, translate(-1px, -50%) rotate(15deg));
+						background-color: $white-color;
+						overflow: hidden;
+					}
+
+				}
+
+				&.active {
+					color: $theme-color;
+				}
+			}
+		}
+	}
+}
+
+// swipper slider margin
+.swiper-slide {
+	@include breakpoint(md) {
+		margin-right: 24px !important;
+	}
+
+	&-active {
+		margin-right: 0px !important;
+
+		@include breakpoint(md) {
+			margin-right: 24px !important;
+
+		}
+	}
+}
+
+
+
+// bootstrab column system 
+.col-xxxl-12 {
+	@media screen and (min-width: 1920px) {
+		flex: 0 0 auto;
+		width: calc(100%);
+	}
+}
+
+.col-xxxl-6 {
+	@media screen and (min-width: 1920px) {
+		flex: 0 0 auto;
+		width: calc(100% / 2);
+	}
+}
+
+.col-xxxl-4 {
+	@media screen and (min-width: 1920px) {
+		flex: 0 0 auto;
+		width: calc(100% / 3);
+	}
+}
+
+.col-xxxl-3 {
+
+	@media screen and (min-width: 1920px) {
+		flex: 0 0 auto;
+		width: calc(100% / 4);
+	}
+}
+
+@keyframes left-animation {
+	0% {
+		@include add-prefix(transform, translateX(0px));
+	}
+
+	25% {
+		@include add-prefix(transform, translateX(30px));
+	}
+
+	50% {
+		@include add-prefix(transform, translateX(0px));
+	}
+
+	75% {
+		@include add-prefix(transform, translateX(-30px));
+	}
+
+	100% {
+		@include add-prefix(transform, translateX(0px));
+	}
+}
+
+@-webkit-keyframes left-animation {
+	0% {
+		@include add-prefix(transform, translateX(0px));
+	}
+
+	25% {
+		@include add-prefix(transform, translateX(30px));
+	}
+
+	50% {
+		@include add-prefix(transform, translateX(0px));
+	}
+
+	75% {
+		@include add-prefix(transform, translateX(-30px));
+	}
+
+	100% {
+		@include add-prefix(transform, translateX(0px));
+	}
+}
+
+@keyframes right-animation {
+	0% {
+		@include add-prefix(transform, translateX(0px));
+	}
+
+	25% {
+		@include add-prefix(transform, translateX(-30px));
+	}
+
+	50% {
+		@include add-prefix(transform, translateX(0px));
+	}
+
+	75% {
+		@include add-prefix(transform, translateX(30px));
+	}
+
+	100% {
+		@include add-prefix(transform, translateX(0px));
+	}
+}
+
+@-webkit-keyframes right-animation {
+	0% {
+		@include add-prefix(transform, translateX(0px));
+	}
+
+	25% {
+		@include add-prefix(transform, translateX(-30px));
+	}
+
+	50% {
+		@include add-prefix(transform, translateX(0px));
+	}
+
+	75% {
+		@include add-prefix(transform, translateX(30px));
+	}
+
+	100% {
+		@include add-prefix(transform, translateX(0px));
+	}
+}
+
+.home__thumb::before {
+	animation: rotation 20s infinite linear;
+	-webkit-animation: rotation 20s infinite linear;
+}
+
+@keyframes rotation {
+	0% {
+		@include add-prefix(transform, translate(-50%, -50%) rotate(30.56deg));
+	}
+
+	25% {
+		@include add-prefix(transform, translate(-50%, -50%) rotate(45deg));
+	}
+
+	50% {
+		@include add-prefix(transform, translate(-50%, -50%) rotate(30.56deg));
+	}
+
+	75% {
+		@include add-prefix(transform, translate(-50%, -50%) rotate(45deg));
+	}
+
+	100% {
+		@include add-prefix(transform, translate(-50%, -50%) rotate(30.56deg));
+	}
+}
+
+@-webkit-keyframes rotation {
+	0% {
+		@include add-prefix(transform, translate(-50%, -50%) rotate(30.56deg));
+	}
+
+	25% {
+		@include add-prefix(transform, translate(-50%, -50%) rotate(45deg));
+	}
+
+	50% {
+		@include add-prefix(transform, translate(-50%, -50%) rotate(30.56deg));
+	}
+
+	75% {
+		@include add-prefix(transform, translate(-50%, -50%) rotate(45deg));
+	}
+
+	100% {
+		@include add-prefix(transform, translate(-50%, -50%) rotate(30.56deg));
+	}
+}
+
+
+// custom gutter 
+.row.g-6 {
+	@include breakpoint(md) {
+		margin-left: -35px;
+		margin-right: -35px;
+
+		&>[class^='col'],
+		&>[class*=' col'] {
+			padding-left: 35px;
+			padding-right: 35px;
+		}
+	}
+}
+
+
+.home__thumb::after {
+	margin: 24px;
+	width: 50px;
+	height: 50px;
+	background: #f50057;
+	@include add-prefix(animation, zoom-in-zoom-out 6s ease infinite);
+}
+
+@keyframes zoom-in-zoom-out {
+	0% {
+		@include add-prefix(transform, translate(-50%, -50%) scale(1, 1));
+	}
+
+	50% {
+		@include add-prefix(transform, translate(-50%, -50%) scale(1.05, 1.05));
+	}
+
+	100% {
+		@include add-prefix(transform, translate(-50%, -50%) scale(1, 1));
+	}
+}

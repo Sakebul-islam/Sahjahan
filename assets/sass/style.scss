@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+// 1.configuration and helpers
+@import "abstracts/variables", "abstracts/mixins";
+
+//2.vendors
+@import "vendors/normalize", "vendors/rfs";
+
+//3.Base stuff
+@import "base/typography", "base/common", "base/helpers", "base/fonts";
+
+@import "abstracts/extend";
+
+// 4.layout-related section
+@import "layout/button";
+
+// 5.components
+@import "components/home", "components/about", "components/services", "components/project-counter", "components/testimonial", "components/resume.scss", "components/skill.scss", "components/portfolio.scss", "components/blog_post.scss", "components/contact.scss";
+
+// 7. Themes
+// @import "themes/default";

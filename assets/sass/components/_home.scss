@@ -1,0 +1,278 @@
+.home {
+    width: 100%;
+    position: relative;
+
+    &__thumb {
+        @extend %text-center;
+        @extend %p-rel,
+        %of-hidden;
+
+        @include breakpoint(lg) {
+            padding-top: 50px;
+        }
+
+        &::after,
+        &::before {
+            @extend %p-abs;
+            background-color: $shape-color;
+            left: 50%;
+
+        }
+
+
+        &::before {
+            width: 700px;
+            height: 100px;
+            top: 50%;
+            @include add-prefix(transform, translate(-50%, -50%) rotate(30.56deg));
+            @include add-prefix(animation, rotation 20s infinite linear);
+            z-index: 0;
+
+            @include breakpoint(sm) {
+                width: 1129.68px;
+                height: 145.82px;
+            }
+        }
+
+        &::after {
+            width: 380px;
+            height: 380px;
+            top: 50%;
+            @include add-prefix(transform, translate(-50%, -50%));
+            @include add-prefix(border-radius, 100%);
+            z-index: 0;
+
+            @include breakpoint(sm) {
+                width: 712px;
+                height: 712px;
+            }
+        }
+
+        img {
+            @extend %p-rel;
+            z-index: 1;
+        }
+    }
+
+
+    &__arrow {
+        @extend %p-rel,
+        %display-none;
+        opacity: 0;
+        visibility: hidden;
+
+        @include breakpoint(lg) {
+            position: absolute;
+            opacity: 1;
+            visibility: visible;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 95.54px;
+            top: 50%;
+            left: 50%;
+            @include add-prefix(transform, translate(-50%, -50%));
+            gap: 300.44px;
+        }
+
+        @include breakpoint(xxl) {
+            gap: 785.44px;
+        }
+
+        img {
+            &:first-child {
+                @include add-prefix(animation, left-animation 5s infinite linear);
+            }
+
+            &:last-child {
+                @include add-prefix(animation, right-animation 5s infinite linear);
+            }
+        }
+    }
+
+    &__content {
+        @extend %p-abs,
+        %d-block,
+        %text-center;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        @include add-prefix(transform, translate(-50%, -50%));
+        z-index: 8;
+
+
+        h2 {
+            @include font-size($fs-h2);
+            @extend %text-bold,
+            %text-uppercase,
+            %hidden,
+            %d-inline-block;
+            color: $white-color;
+            margin-bottom: 15px;
+            line-height: 1;
+
+            @include breakpoint(sm) {
+                margin-bottom: 15px;
+            }
+
+            @include breakpoint(sm) {
+                span {
+                    position: relative;
+                    display: inline-block;
+                    @include transition(all 0.2s ease-in-out);
+
+                    &:first-child {
+                        color: $theme-color;
+
+                        &::before {
+                            position: absolute;
+                            content: attr(data-hover);
+                            top: 120%;
+
+                        }
+                    }
+
+                    &:last-child {
+                        color: $white-color;
+
+                        &::before {
+                            position: absolute;
+                            content: attr(data-hover);
+                            top: -120%;
+
+                        }
+                    }
+                }
+            }
+
+            @include breakpoint(sm) {
+                &:hover {
+                    span {
+                        &:first-child {
+                            color: $theme-color;
+                            @include add-prefix(transform, translate3d(0, 120%, 0));
+
+                            &::before {
+                                top: -120%;
+                                color: $white-color;
+                            }
+                        }
+
+                        &:last-child {
+                            color: $white-color;
+                            @include add-prefix(transform, translate3d(0, -120%, 0));
+
+                            &::before {
+                                top: 120%;
+                                color: $theme-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        h4 {
+            @include font-size($fs-h4);
+            @extend %text-semi-bold,
+            %text-capitalize;
+            color: $white-color;
+            margin-top: 3px;
+
+            .typewriter {
+                color: $theme-color;
+            }
+
+            .ityped-cursor {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+
+    }
+
+    &__social {
+        @extend %p-abs,
+        %d-block,
+        %text-center;
+        width: 100%;
+        bottom: 50px;
+        z-index: 1;
+
+
+        @include breakpoint(sm) {
+            bottom: 97px;
+        }
+
+        @include breakpoint(lg) {
+            width: auto;
+            left: 288px;
+            text-align: left;
+        }
+
+        h6 {
+            @include font-size($fs-h6);
+            font-family: $title-font;
+            @extend %text-semi-bold,
+            %text-uppercase;
+            color: $white-color;
+            margin-bottom: 10px;
+        }
+
+    }
+
+    &__social-icons {
+        @extend %p-rel,
+        %flex,
+        %ai-center,
+        %justify-center;
+
+        @include breakpoint(lg) {
+            justify-content: flex-start
+        }
+
+        li {
+            @extend %p-rel,
+            %flex,
+            %ai-center;
+            margin-left: 18px;
+
+            &:first-child {
+                margin-left: 0;
+
+                &::before {
+                    content: none;
+                }
+
+                a {
+                    margin-left: 0;
+                }
+            }
+
+
+            &::before {
+                @extend %p-abs;
+                background-color: $white-color;
+                width: 8px;
+                height: 8px;
+                @include add-prefix(border-radius, 100%);
+            }
+
+
+
+            a {
+                color: $white-color;
+                @extend %text-capitalize;
+                font-family: $title-font;
+                margin-left: 26px;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+}

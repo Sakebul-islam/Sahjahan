@@ -1,0 +1,433 @@
+.skill {
+    background-color: $shape-color;
+
+    &__design {
+        &-title {
+            h3 {
+                @include font-size($fs-h3);
+                font-family: $title-font;
+                @extend %text-capitalize,
+                %text-semi-bold;
+                margin-bottom: 18px;
+            }
+        }
+    }
+
+    &__inner {}
+
+    &__bar-container {
+
+        li {
+            @extend %p-rel;
+            width: 100%;
+            padding: 10px 0;
+            margin-bottom: 10px;
+
+            @include breakpoint(sm) {
+                padding: 15px 0;
+            }
+
+            // end progressbar-title
+
+            .bar-container {
+                background-color: $white-color;
+                position: relative;
+                width: 100%;
+                height: 10px;
+                margin-top: 7px;
+                @extend %d-block;
+                @include border-radius(300px);
+
+                @include breakpoint(sm) {
+                    height: 15px;
+                }
+
+                .progressbar {
+                    background: $theme-color;
+                    position: absolute;
+                    width: 0%;
+                    height: 100%;
+                    @include border-radius(300px);
+                    @include add-prefix(animation-duration, 2s);
+                    @include add-prefix(animation-timing-function, ease-out);
+                    @include add-prefix(animation-fill-mode, both);
+                }
+
+                // design skill 
+
+                #progress-photoshop {
+                    @include add-prefix(animation-name, progress-photoshop);
+                    @include add-prefix(animation-delay, 1s);
+                }
+
+                #progress-illustarator {
+                    @include add-prefix(animation-name, progress-illustarator);
+                    @include add-prefix(animation-delay, 1s*2);
+                }
+
+                #progress-xd {
+                    @include add-prefix(animation-name, progress-xd);
+                    @include add-prefix(animation-delay, 1s*3);
+                }
+
+                #progress-figma {
+                    @include add-prefix(animation-name, progress-figma);
+                    @include add-prefix(animation-delay, 1s*4);
+                }
+
+                #progress-after_effect {
+                    @include add-prefix(animation-name, progress-after_effect);
+                    @include add-prefix(animation-delay, 1s*5);
+                }
+
+                // language  skill
+                #progress-english {
+                    @include add-prefix(animation-name, progress-english);
+                    @include add-prefix(animation-delay, 1s);
+                }
+
+                #progress-french {
+                    @include add-prefix(animation-name, progress-french);
+                    @include add-prefix(animation-delay, 1s*2);
+                }
+
+                #progress-spanish {
+                    @include add-prefix(animation-name, progress-spanish);
+                    @include add-prefix(animation-delay, 1s*3);
+                }
+
+                #progress-german {
+                    @include add-prefix(animation-name, progress-german);
+                    @include add-prefix(animation-delay, 1s*4);
+                }
+
+                #progress-british {
+                    @include add-prefix(animation-name, progress-british);
+                    @include add-prefix(animation-delay, 1s*5);
+                }
+            }
+        }
+    }
+
+
+    &__title {
+        color: $white-color;
+
+        h6 {
+            @extend %text-semi-bold,
+            %d-inline-block;
+            @include font-size($fs-h6);
+            font-family: $title-font;
+        }
+
+
+    }
+
+    &__percent {
+        @extend %p-abs;
+        right: 0;
+        font-family: $global-font;
+    }
+}
+
+// design skill animation 
+
+@-webkit-keyframes progress-photoshop {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 90%;
+    }
+}
+
+@-webkit-keyframes progress-illustarator {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+@-webkit-keyframes progress-xd {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 70%;
+    }
+}
+
+@-webkit-keyframes progress-figma {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 60%;
+    }
+}
+
+@-webkit-keyframes progress-after_effect {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+@-webkit-keyframes progress-english {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 90%;
+    }
+}
+
+@-webkit-keyframes progress-french {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+@-webkit-keyframes progress-spanish {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 70%;
+    }
+}
+
+@-webkit-keyframes progress-german {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 60%;
+    }
+}
+
+@-webkit-keyframes progress-british {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+@-moz-keyframes progress-photoshop {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 90%;
+    }
+}
+
+@-moz-keyframes progress-illustarator {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+@-moz-keyframes progress-xd {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 70%;
+    }
+}
+
+@-moz-keyframes progress-figma {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 60%;
+    }
+}
+
+@-moz-keyframes progress-after_effect {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+@-moz-keyframes progress-english {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 90%;
+    }
+}
+
+@-moz-keyframes progress-french {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+@-moz-keyframes progress-spanish {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 70%;
+    }
+}
+
+@-moz-keyframes progress-german {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 60%;
+    }
+}
+
+@-moz-keyframes progress-british {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+@keyframes progress-photoshop {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 90%;
+    }
+}
+
+@keyframes progress-illustarator {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+@keyframes progress-xd {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 70%;
+    }
+}
+
+@keyframes progress-figma {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 60%;
+    }
+}
+
+@keyframes progress-after_effect {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+@keyframes progress-english {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 90%;
+    }
+}
+
+@keyframes progress-french {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+@keyframes progress-spanish {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 70%;
+    }
+}
+
+@keyframes progress-german {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 60%;
+    }
+}
+
+@keyframes progress-british {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}

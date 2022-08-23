@@ -1,0 +1,108 @@
+.testimonial {
+    &__inner {
+        background-color: $shape-color;
+        padding: 25px;
+        @include add-prefix(border-radius, 8px);
+
+    }
+
+    &__header {
+        margin-bottom: 55px;
+        @extend %p-rel;
+
+        .main-header {
+            margin-bottom: 0;
+        }
+    }
+
+
+    &__left-arrow {
+        right: 60px;
+        left: inherit;
+
+    }
+
+    &__right-arrow {
+        right: 0px;
+    }
+
+    &__thumb {
+        @extend %flex,
+        %ai-center;
+        margin-bottom: 15px;
+    }
+
+    &__author {
+
+        a {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+
+            img {
+                @include add-prefix(border-radius, 100%);
+            }
+        }
+    }
+
+    &__author-title {
+        @extend %d-inline-block;
+        width: calc(100% - 90px);
+        padding-left: 15px;
+
+        @include breakpoint(sm) {
+            width: calc(100% - 95px);
+        }
+
+        @include breakpoint(md) {
+            width: calc(100% - 100px);
+        }
+
+        @include breakpoint(lg) {
+            width: calc(100% - 115px);
+        }
+
+        @include breakpoint(xl) {
+            width: calc(100% - 100px);
+        }
+
+        a {
+            color: $white-color;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: $theme-color;
+            }
+
+            h5 {
+                @extend %text-semi-bold,
+                %text-capitalize;
+                @include font-size($fs-h6);
+                margin-bottom: 5px;
+
+                @include breakpoint(sm) {
+                    @include font-size($fs-h5);
+                }
+            }
+        }
+
+        h6 {
+            @extend %text-light,
+            %text-capitalize;
+            @include font-size($fs-base);
+            font-family: $global-font;
+        }
+
+    }
+
+    &__author-quote {
+        i {
+            @include font-size(32px);
+            color: $theme-color;
+            margin-left: 5px;
+        }
+    }
+
+    &__wrapper {}
+}

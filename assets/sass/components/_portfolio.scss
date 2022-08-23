@@ -1,0 +1,62 @@
+.portfolio {
+
+    // filter navigation
+    &__navigation {
+        @extend %flex,
+        %justify-center,
+        %ai-center;
+        gap: 15px;
+
+        @include breakpoint(sm) {
+            gap: 25px;
+        }
+
+        li {
+            cursor: pointer;
+
+            span {
+                @extend %text-semi-bold,
+                %text-capitalize;
+                @include font-size($fs-base);
+                font-family: $title-font;
+                margin-bottom: 5px;
+            }
+
+            &.is-checked {
+                span {
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+
+    // filter gallery-menu
+    &__gallery-menu {
+        margin-bottom: 27px;
+    }
+
+    &__gallery-filter {
+        a {
+            @extend %d-block;
+
+            img {
+                width: 100%;
+                @include add-prefix(border-radius, 8px);
+                @include transition($transition);
+            }
+        }
+    }
+
+    &__gallery-filter-item {
+        @include transition($transition);
+        @extend %hidden;
+
+        &:hover {
+            a {
+                img {
+                    @include add-prefix(transform, scale(1.3) rotate(8deg));
+                }
+            }
+        }
+    }
+}

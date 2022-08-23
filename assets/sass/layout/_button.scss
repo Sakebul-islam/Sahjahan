@@ -1,0 +1,80 @@
+.common-btn {
+    // color: $download-btn-color;
+    // background-color: $theme-color;
+    // @extend %text-capitalize,
+    // %text-bold;
+    // @include font-size($fs-base);
+    // font-family: $title-font;
+    // line-height: 3.4;
+    // padding: 0 32px;
+    // @include add-prefix(border-radius, 4px);
+
+    // &:hover,
+    // &:focus,
+    // &:active {
+    //     background-color: $white-color;
+    //     color: $shape-color;
+    // }
+
+    // span {
+    //     @extend %text-uppercase;
+    // }
+
+    @include add-prefix(border-radius, 4px);
+    @extend %p-rel,
+    %text-capitalize,
+    %text-bold,
+    %hidden,
+    %d-inline-block;
+    height: 46px;
+    line-height: 46px;
+    @include font-size($fs-base);
+    font-family: $title-font;
+    color: $download-btn-color;
+    background-color: $theme-color;
+    padding: 0 33px;
+    outline: none;
+    z-index: 1;
+
+    span {
+        @extend %text-uppercase;
+    }
+
+    &:before,
+    &:after {
+        @extend %p-abs;
+        top: -2.5px;
+        height: 112%;
+        width: 0%;
+        background-color: $placeholder-color;
+        transform: skew(-22deg);
+        transition-duration: .6s;
+        z-index: -1;
+    }
+
+    &:before {
+        left: -25%;
+        transform: skew(-22deg);
+        z-index: -1;
+    }
+
+    &:after {
+        right: -25%;
+        transform: skew(-22deg);
+        z-index: -1;
+    }
+
+    &:hover {
+        color: $white-color;
+
+        &:before,
+        &:after {
+            width: 150%;
+        }
+    }
+}
+
+.common-btn--submit {
+    padding: 0 50px;
+    @include transition($transition);
+}

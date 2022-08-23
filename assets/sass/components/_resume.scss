@@ -1,0 +1,144 @@
+.resume {
+
+    &__experience {
+        margin-bottom: 60px;
+
+        @include breakpoint(sm) {
+            margin-bottom: 60;
+        }
+
+        @include breakpoint(md) {
+            margin-bottom: 0;
+        }
+
+    }
+
+    &__education-title,
+    &__experience-title {
+        margin-bottom: 40px;
+
+        h4 {
+            font-family: $title-font;
+            @include font-size($fs-h4);
+            @extend %text-capitalize,
+            %text-semi-bold;
+        }
+    }
+
+    &__item {
+        margin-bottom: 24px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__inner {
+        @extend %p-rel;
+        padding: 32px 17px 32px 25px;
+        @include add-prefix(border-radius, 4px);
+        background-color: $shape-color;
+        @extend %justify-center;
+        @include transition(all 0.5s ease);
+
+
+        @include breakpoint(sm) {
+            display: flex;
+            padding: 32px 27px 32px 8px;
+        }
+
+        @include breakpoint(md) {
+            display: inherit;
+            padding: 32px 17px 32px 25px;
+        }
+
+        @include breakpoint(lg) {
+            display: flex;
+            padding: 32px 27px 32px 8px;
+        }
+
+
+
+        &::before {
+            @extend %p-abs;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background-color: $theme-color;
+            @include add-prefix(border-radius, 4px 0px 0px 4px);
+            @include transition($transition);
+        }
+
+        &:hover {
+            background-color: $theme-color;
+            color: $shape-color;
+
+            &::before {
+                background-color: $shape-color;
+            }
+        }
+
+    }
+
+    &__year {
+        width: 100%;
+        @extend %d-inline-block,
+        %text-center;
+        margin-bottom: 15px;
+
+        @include breakpoint(sm) {
+            width: 85px;
+        }
+
+        @include breakpoint(md) {
+            width: 100%;
+            text-align: left;
+        }
+
+        @include breakpoint(lg) {
+            width: 85px;
+            text-align: center;
+        }
+
+        span {
+            @extend %text-medium;
+            font-family: $title-font;
+            @include font-size($fs-base);
+        }
+
+    }
+
+    &__content {
+        @extend %d-inline-block,
+        %text-center;
+        width: 100%;
+
+        @include breakpoint(sm) {
+            width: calc(100% - 85px);
+            text-align: left;
+        }
+
+        @include breakpoint(md) {
+            width: 100%;
+        }
+
+        @include breakpoint(lg) {
+            width: calc(100% - 85px);
+        }
+
+        h6 {
+            font-family: $title-font;
+            @include font-size($fs-h6);
+            @extend %text-semi-bold,
+            %text-capitalize;
+            margin-bottom: 10px;
+            @include transition($transition);
+        }
+
+        p {
+            @extend %text-light;
+
+        }
+    }
+}

@@ -1,0 +1,63 @@
+.services {
+    &__header {
+        margin-bottom: 58px;
+        @extend %p-rel;
+
+        .main-header {
+            margin-bottom: 0;
+        }
+    }
+
+    &__left-arrow {
+        right: 60px;
+        left: inherit;
+    }
+
+    &__right-arrow {
+        right: 0px;
+    }
+
+    &__inner {
+        background-color: $shape-color;
+        padding: 40px 19px;
+        @include add-prefix(border-radius, 8px);
+    }
+
+    &__thumb {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+        background-color: $body-color;
+        @include add-prefix(border-radius, 100%);
+        @extend %flex,
+        %justify-center,
+        %ai-center;
+        margin-bottom: 25px;
+    }
+
+    &__content {
+        h6 {
+            margin-bottom: 20px;
+            @include font-size($fs-h6);
+
+            a {
+                color: $white-color;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $theme-color;
+                }
+
+                span {
+                    @extend %text-uppercase;
+                }
+            }
+        }
+
+        p {
+            font-family: $global-font;
+            @extend %text-light;
+        }
+    }
+}
